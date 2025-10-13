@@ -27,6 +27,20 @@
 `cd <dir_name>`
 * 'Change Directory'
 
+## Networking
+
+`ip a`
+* 'IP Address'
+```
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 52:54:00:c5:65:f6 brd ff:ff:ff:ff:ff:ff
+    altname enp3s0
+    inet 10.106.5.63/20 metric 100 brd 10.106.15.255 scope global dynamic eth0
+       valid_lft 24087sec preferred_lft 24087sec
+    inet6 fe80::5054:ff:fec5:65f6/64 scope link
+       valid_lft forever preferred_lft forever
+```
+
 ## Devices ##
 
 `lsblock`
