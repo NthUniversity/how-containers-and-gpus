@@ -31,6 +31,22 @@ Notes:
 * Best practice to specify tag (1.12.0) instead of 'latest'
 
 ---
+## Testing the model
+
+From a separate console, run the following to testL
+```
+curl -X 'POST' \
+'http://0.0.0.0:8000/v1/chat/completions' \
+-H 'accept: application/json' \
+-H 'Content-Type: application/json' \
+-d '{
+    "model": "microsoft/phi-4-mini-instruct",
+    "messages": [{"role":"user", "content":"Write a limerick about the wonders of GPU computing."}],
+    "max_tokens": 64
+}'
+```
+---
+## Serving the model
 
 When happy with configuration of container, run it in 'detached' mode
 
