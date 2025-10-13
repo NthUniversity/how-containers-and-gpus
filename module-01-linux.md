@@ -8,6 +8,10 @@
 `sudo <command>`
 * 'Super User DO'
 
+`export <var_name>=<var_value>`
+* sets environment variable
+* `echo $var_name` prints environment variable value
+
 
 ## Files, Directories & Storage ##
 
