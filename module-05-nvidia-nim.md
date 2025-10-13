@@ -1,0 +1,56 @@
+# Launch NVIDIA NIM
+
+`export NGC_API_KEY=nvapi-XXXXXXXX`
+
+Login to NCG repo
+
+`echo "$NGC_API_KEY" | docker login nvcr.io --username '$oauthtoken' --password-stdin`
+
+Define and create cache directory to be used by NIM container
+
+`export LOCAL_NIM_CACHE=~/.cache/nim`
+
+`mkdir -p "$LOCAL_NIM_CACHE"`
+
+Run container interactively and verify funtion
+
+```
+docker run -it --rm \
+    --gpus all \
+    --shm-size=16GB \
+    -e NGC_API_KEY \
+    -e NIM_MAX_MODEL_LEN=16324 \
+    -v "$LOCAL_NIM_CACHE:/opt/nim/.cache" \
+    -u $(id -u) \
+    -p 8000:8000 \
+    nvcr.io/nim/microsoft/phi-4-mini-instruct:1.12.0
+```
+
+Notes:
+* Context length set to 16K (Due to size of A2 & L4)
+* Best practice to specify tag (1.12.0) instead of 'latest'
+
+---
+
+When happy with configuration of container, run it in 'detached' mode
+
+```
+docker run -d \
+    --name nim-phi4 \
+    --restart unless-stopped \
+    --gpus all \
+    --shm-size=16GB \
+    -e NGC_API_KEY \
+    -e NIM_MAX_MODEL_LEN=16324 \
+    -v "$LOCAL_NIM_CACHE:/opt/nim/.cache" \
+    -u $(id -u) \
+    -p 8000:8000 \
+    nvcr.io/nim/microsoft/phi-4-mini-instruct:1.12.0
+```
+* `-d` detached mode
+* `--name <container_name>` friendly name
+* `--restart unless-stopped` to autostart across reboots
+
+
+
+
