@@ -24,6 +24,10 @@
 * 'LiSt'
 * -l lists details
 
+`cat <file_name>`
+* 'conCATenate'
+* prints text within a file
+
 `cd <dir_name>`
 * 'Change Directory'
 
