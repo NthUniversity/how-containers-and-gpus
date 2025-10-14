@@ -1,6 +1,8 @@
 # Launch NVIDIA NIM
 
-`export NGC_API_KEY=nvapi-XXXXXXXX`
+Set you environment variable for the NVIDIA API key
+
+`export NGC_API_KEY=nvapi-XXXXXXXX` (nvapi-XXXXXXXX is just a placehoder)
 
 Login to NCG repo
 
@@ -49,6 +51,10 @@ curl -X 'POST' \
 ## Serving the model
 
 When happy with configuration of container, run it in 'detached' mode
+
+Note: If you launced a new ssh session, you will need to set NIM Cache variable again with:
+
+`export LOCAL_NIM_CACHE=~/.cache/nim`
 
 ```
 docker run -d \
