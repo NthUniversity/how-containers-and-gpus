@@ -1,20 +1,22 @@
 # Launch NVIDIA NIM
 
-Set you environment variable for the NVIDIA API key
+**Set you environment variable for the NVIDIA API key**
 
 `export NGC_API_KEY=nvapi-XXXXXXXX` (nvapi-XXXXXXXX is just a placehoder)
 
-Login to NCG repo
+You can signup for your own developer account at https://developer.nvidia.com/
+
+**Login to NCG repo**
 
 `echo "$NGC_API_KEY" | docker login nvcr.io --username '$oauthtoken' --password-stdin`
 
-Define and create cache directory to be used by NIM container
+**Define and create cache directory to be used by NIM container**
 
 `export LOCAL_NIM_CACHE=~/.cache/nim`
 
 `mkdir -p "$LOCAL_NIM_CACHE"`
 
-Run container interactively and verify funtion
+**Run container interactively and verify funtion**
 
 ```
 docker run -it --rm \
@@ -28,14 +30,14 @@ docker run -it --rm \
     nvcr.io/nim/microsoft/phi-4-mini-instruct:1.12.0
 ```
 
-Notes:
+**Notes:**
 * Context length set to 16K (Due to size of A2 & L4)
 * Best practice to specify tag (1.12.0) instead of 'latest'
 
 ---
 ## Testing the model
 
-From a separate console, run the following to testL
+**From a separate console, run the following to test**
 ```
 curl -X 'POST' \
 'http://0.0.0.0:8000/v1/chat/completions' \
