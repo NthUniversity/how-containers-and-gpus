@@ -16,6 +16,8 @@ Install drivers
 
 `sudo apt install -y nvidia-driver-580-server `
 
+Driver Version Reference: https://docs.nvidia.com/datacenter/tesla/drivers/#supported-drivers-and-cuda-toolkit-versions
+
 Reboot
 
 `sudo reboot now`
