@@ -47,8 +47,8 @@
 
 ## Devices ##
 
-`lsblock`
-* 'LiSt BLOCK' (disk devices)
+`lsblk`
+* 'LiSt BLocK' (disk devices)
 
 `lspci`
 * 'LiSt PCI' (peripherals)
